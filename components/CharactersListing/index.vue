@@ -1,14 +1,7 @@
 <template>
   <section class="flex flex-col w-full max-w-[1224px] mx-auto gap-8">
     <div class="flex flex-wrap gap-4 justify-center xl:justify-start">
-      <header class="flex gap-4">
-        <h2 class="text-2xl font-bold">Personagens</h2>
-
-        <button class="flex gap-2 p-1 pr-2 rounded-[32px] bg-[#313234]">
-          <IconsSquareFour />
-          Ver todos
-        </button>
-      </header>
+      <ListingHeader title="Personagens" />
 
       <div class="flex flex-wrap gap-4 justify-center">
         <Card
@@ -53,9 +46,9 @@
 <script setup>
 // Index.vue - Components
 import Card from "../components/Card/index.vue";
+import ListingHeader from "../components/ListingHeader/index.vue";
 import SeeDocumentDetails from "../components/SeeDocumentDetails/index.vue";
 // Icons.vue - Components
-import IconsSquareFour from "../components/icons/SquareFour.vue";
 import IconsHeartFilled from "../components/icons/HeartFilled.vue";
 import IconsHeartOutlined from "../components/icons/HeartOutlined.vue";
 
