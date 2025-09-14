@@ -1,5 +1,8 @@
 <template>
-  <section></section>
+  <section>
+    <card v-for="currentEpisode of data.results" :key="currentEpisode.id">
+    </card>
+  </section>
 </template>
 
 <script setup>

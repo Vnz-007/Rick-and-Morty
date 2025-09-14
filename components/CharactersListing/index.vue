@@ -11,7 +11,11 @@
       </header>
 
       <div class="flex flex-wrap gap-4 justify-center">
-        <Card v-for="currentCharacter of data.results">
+        <Card
+          v-for="currentCharacter of data.results"
+          :key="currentCharacter.id"
+          class="w-full max-w-[294px] flex flex-col gap-4 p-4 rounded-lg bg-[#313234]"
+        >
           <img
             :src="currentCharacter.image"
             height="200"
