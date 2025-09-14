@@ -14,7 +14,7 @@
         <div class="flex flex-wrap gap-4 justify-center">
           <div
             v-for="currentCharacter of data.results"
-            class="w-full max-w-[294px] flex flex-col justify-between gap-4 p-4 rounded-lg bg-[#313234]"
+            class="w-full max-w-[294px] flex flex-col gap-4 p-4 rounded-lg bg-[#313234]"
           >
             <img
               :src="currentCharacter.image"
@@ -43,9 +43,10 @@
               </span>
             </div>
 
-            <div>
-              <SeeDocumentDetails :actionUrl="currentCharacter.url" />
-            </div>
+            <SeeDocumentDetails
+              :actionUrl="currentCharacter.url"
+              class="flex items-center self-end py-[6px] pl-1 pr-2 mt-auto gap-2 text-sm rounded-[32px] bg-[#11B0C8]"
+            />
           </div>
         </div>
       </div>
