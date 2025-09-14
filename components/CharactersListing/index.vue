@@ -11,10 +11,7 @@
       </header>
 
       <div class="flex flex-wrap gap-4 justify-center">
-        <Card
-          v-for="currentCharacter of data.results"
-          class="w-full max-w-[294px] flex flex-col gap-4 p-4 rounded-lg bg-[#313234]"
-        >
+        <Card v-for="currentCharacter of data.results">
           <img
             :src="currentCharacter.image"
             height="200"
@@ -42,10 +39,7 @@
             </span>
           </div>
 
-          <SeeDocumentDetails
-            :actionUrl="currentCharacter.url"
-            class="flex items-center self-end py-[6px] pl-1 pr-2 mt-auto gap-2 text-sm rounded-[32px] bg-[#11B0C8]"
-          />
+          <SeeDocumentDetails :actionUrl="currentCharacter.url" />
         </Card>
       </div>
     </div>
@@ -61,9 +55,7 @@ import IconsSquareFour from "../components/icons/SquareFour.vue";
 import IconsHeartFilled from "../components/icons/HeartFilled.vue";
 import IconsHeartOutlined from "../components/icons/HeartOutlined.vue";
 
-const { data, status, error, refresh, clear } = await useFetch(
-  "https://rickandmortyapi.com/api/character"
-);
+const { data } = await useFetch("https://rickandmortyapi.com/api/character");
 
 console.log(data.results);
 </script>
