@@ -1,7 +1,9 @@
 <template>
   <main class="text-white bg-[#1e1e1e]">
-    <CharactersListing />
-    <EpisodesListing />
+    <div class="max-w-[1224px] flex flex-col gap-16 mx-auto">
+      <CharactersListing />
+      <EpisodesListing />
+    </div>
   </main>
 </template>
 

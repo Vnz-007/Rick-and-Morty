@@ -36,7 +36,10 @@
             </span>
           </div>
 
-          <SeeDocumentDetails :actionUrl="currentCharacter.url" />
+          <SeeDocumentDetails
+            :actionUrl="currentCharacter.url"
+            class="mt-auto"
+          />
         </Card>
       </div>
     </div>
