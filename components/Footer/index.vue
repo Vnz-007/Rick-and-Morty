@@ -26,6 +26,4 @@
   </footer>
 </template>
 
-<script setup>
-import IconsCode from "../icons/Code.vue";
-</script>
+<script setup></script>

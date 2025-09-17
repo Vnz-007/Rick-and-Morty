@@ -29,8 +29,8 @@
 </template>
 
 <script setup>
-import IconsPlay from "~/components/icons/Play.vue";
-import IconsHeartOutlined from "~/components/icons/HeartOutlined.vue";
+// import IconsPlay from "~/components/icons/Play.vue";
+// import IconsHeartOutlined from "~/components/icons/HeartOutlined.vue";
 import { useHead } from "nuxt/app";
 
 const route = useRoute();

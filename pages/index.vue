@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-16">
+  <div class="flex flex-col gap-16 pt-[60px]">
     <CharactersListing />
     <EpisodesListing />
   </div>

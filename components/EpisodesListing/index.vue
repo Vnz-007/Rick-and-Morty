@@ -16,7 +16,11 @@
             <p>{{ currentEpisode.name }} | {{ currentEpisode.episode }}</p>
           </div>
           <div class="flex items-center justify-between">
-            <SeeDocumentDetails class="my-auto" />
+            <SeeDocumentDetails
+              class="my-auto"
+              :id="currentEpisode.id"
+              :type="'episode'"
+            />
             <IconsHeartFilled :width="32" :height="32" />
           </div>
         </card>
@@ -33,7 +37,5 @@ import SeeDocumentDetails from "../SeeDocumentDetails/index.vue";
 import IconsPlay from "../icons/Play.vue";
 import IconsHeartFilled from "../icons/HeartFilled.vue";
 
-const { data, status, error, refresh, clear } = await useFetch(
-  "https://rickandmortyapi.com/api/episode"
-);
+const { data } = await useFetch("https://rickandmortyapi.com/api/episode");
 </script>
