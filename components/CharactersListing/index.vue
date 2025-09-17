@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col w-full max-w-[1224px] mx-auto gap-8">
+  <section class="flex flex-col pb-20 mx-auto gap-8">
     <div class="flex flex-wrap gap-4 justify-center xl:justify-start">
       <ListingHeader title="Personagens" />
 
