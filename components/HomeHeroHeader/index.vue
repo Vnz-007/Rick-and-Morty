@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center justify-center w-full text-white bg-black">
-    <div class="flex w-full max-w-[1220px] items-center justify-between pt-36">
+    <div class="flex w-full max-w-[1220px] items-center justify-between pt-24">
       <div class="w-full flex flex-col items-start justify-between gap-16">
         <div class="flex flex-col gap-6">
           <h1 class="text-5xl leading-tight font-bold">

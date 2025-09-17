@@ -1,31 +1,39 @@
 <template>
-  <div class="flex gap-16">
-    <img
-      :src="data.image"
-      alt=""
-      width="369"
-      height="461"
-      class="rounded-2xl"
-    />
+  <PageContainer>
+    <div>
+      <NuxtLink to="/" class="text-sm text-blue-500 hover:underline">
+        Voltar para a listagem
+      </NuxtLink>
+    </div>
 
-    <div class="flex flex-col gap-12">
-      <div class="flex items-center gap-4">
-        <h1 class="text-5xl leading-[60px]">{{ data.name }}</h1>
-        <IconsHeartOutlined />
-      </div>
+    <div class="flex gap-16">
+      <img
+        :src="data.image"
+        alt=""
+        width="369"
+        height="461"
+        class="rounded-2xl"
+      />
 
-      <div class="flex items-center gap-2 text-sm">
-        <IconsPlay />
-        <p>Participou de {{ data.episode.length }} episódios</p>
-      </div>
+      <div class="flex flex-col gap-12">
+        <div class="flex items-center gap-4">
+          <h1 class="text-5xl leading-[60px]">{{ data.name }}</h1>
+          <IconsHeartOutlined />
+        </div>
 
-      <div class="flex gap-6">
-        <span>{{ data.status === "Alive" ? "Vivo" : "Morto" }}</span>
-        <span>{{ data.species }}</span>
-        <span>{{ data.gender }}</span>
+        <div class="flex items-center gap-2 text-sm">
+          <IconsPlay />
+          <p>Participou de {{ data.episode.length }} episódios</p>
+        </div>
+
+        <div class="flex gap-6">
+          <span>{{ data.status === "Alive" ? "Vivo" : "Morto" }}</span>
+          <span>{{ data.species }}</span>
+          <span>{{ data.gender }}</span>
+        </div>
       </div>
     </div>
-  </div>
+  </PageContainer>
 </template>
 
 <script setup>
