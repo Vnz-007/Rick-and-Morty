@@ -18,7 +18,7 @@
               href="https://github.com/your-profile"
               target="_blank"
               rel="noopener noreferrer"
-              class="text-cyan-500 hover:underline"
+              class="text-cyan-500 font-bold"
               >Vinícius Loiola</a
             >
           </p>
