@@ -1,8 +1,7 @@
 <template>
   <section class="pb-16">
+    <HeaderLogo class="px-0 bg-transparent" />
     <PageContainer>
-      <HeaderLogo class="bg-transparent" />
-
       <div
         class="flex flex-col text-2xl gap-20 pt-8 pb-52 border-b-2 border-cyan-500"
       >
