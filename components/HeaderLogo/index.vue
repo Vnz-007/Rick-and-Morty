@@ -1,8 +1,8 @@
 <template>
-  <header>
+  <header class="bg-black">
     <PageContainer>
       <div
-        class="absolute top-10 w-full max-w-[1220px] flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
+        class="w-full max-w-[1220px] flex items-center justify-between pt-16"
       >
         <img
           src="/images/brands/Logo-Header.png"

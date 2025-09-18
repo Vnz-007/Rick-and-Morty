@@ -1,6 +1,6 @@
 <template>
   <div class="bg-[#1e1e1e]">
-    <HeaderLogo />
+    <!-- <HeaderLogo /> -->
     <slot />
     <Footer />
   </div>

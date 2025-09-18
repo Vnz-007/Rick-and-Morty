@@ -1,6 +1,7 @@
 <template>
   <section>
-    <PageContainer class="pt-32">
+    <HeaderLogo class="bg-transparent" />
+    <PageContainer class="pt-8">
       <div class="flex gap-16">
         <img
           :src="data.image"

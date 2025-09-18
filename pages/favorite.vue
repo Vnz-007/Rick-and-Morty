@@ -1,8 +1,6 @@
 <template>
   <PageContainer>
-    <!-- <div>
-      <BackToHome />
-    </div> -->
+    <HeaderLogo class="bg-transparent" />
   </PageContainer>
 </template>
 

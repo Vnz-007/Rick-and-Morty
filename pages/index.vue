@@ -1,6 +1,9 @@
 <template>
   <div class="flex flex-col gap-16">
-    <HomeHeroHeader />
+    <div class="flex flex-col">
+      <HeaderLogo />
+      <HomeHeroHeader />
+    </div>
     <PageContainer>
       <CharactersListing />
 

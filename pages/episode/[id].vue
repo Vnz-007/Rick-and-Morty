@@ -1,12 +1,10 @@
 <template>
   <section class="pb-16">
-    <PageContainer class="pt-32">
-      <!-- <div class="pb-8">
-        <BackToHome />
-      </div> -->
+    <PageContainer>
+      <HeaderLogo class="bg-transparent" />
 
       <div
-        class="flex flex-col text-2xl gap-20 pb-52 border-b-2 border-cyan-500"
+        class="flex flex-col text-2xl gap-20 pt-8 pb-52 border-b-2 border-cyan-500"
       >
         <div class="flex flex-col gap-6">
           <IconsPlay width="74" height="74" />
