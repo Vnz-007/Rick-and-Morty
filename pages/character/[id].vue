@@ -25,15 +25,15 @@
           </div>
 
           <div class="flex gap-6 text-2xl">
-            <div class="flex items-center justify-center">
+            <div class="flex items-center justify-center gap-2">
               <IconsPulse width="32" />
               <span>{{ data.status === "Alive" ? "Vivo" : "Morto" }}</span>
             </div>
-            <div class="flex items-center justify-center">
+            <div class="flex items-center justify-center gap-2">
               <IconsEspecie width="32" />
               <span>{{ data.species }}</span>
             </div>
-            <div class="flex items-center justify-center">
+            <div class="flex items-center justify-center gap-2">
               <IconsGender width="32" />
               <span>{{ data.gender }}</span>
             </div>
