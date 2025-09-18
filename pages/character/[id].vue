@@ -16,7 +16,9 @@
             <h1 class="text-4xl md:text-5xl leading-[60px]">
               {{ data.name }}
             </h1>
-            <IconsHeartOutlined width="40" />
+            <div class="flex flex-wrap items-center w-10 md:w-14">
+              <IconsHeartOutlined />
+            </div>
           </div>
 
           <div class="flex items-center gap-2 text-2xl">
