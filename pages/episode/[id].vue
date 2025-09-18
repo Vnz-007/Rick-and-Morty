@@ -3,16 +3,18 @@
     <HeaderLogo class="px-0 bg-transparent" />
     <PageContainer>
       <div
-        class="flex flex-col text-2xl gap-20 pt-8 pb-52 border-b-2 border-cyan-500"
+        class="flex flex-col text-2xl gap-10 md:gap-20 pt-8 pb-52 border-b-2 border-cyan-500"
       >
         <div class="flex flex-col gap-6">
           <IconsPlay width="74" height="74" />
-          <div class="flex items-center gap-4">
-            <h1 class="text-5xl">{{ data.name }}</h1>
+          <div class="flex flex-wrap items-center gap-4">
+            <h1 class="flex items-center justify-center text-5xl">
+              {{ data.name }}
+            </h1>
             <IconsHeartOutlined width="56" height="56" />
           </div>
 
-          <div class="flex items-center gap-6">
+          <div class="flex flex-wrap items-center gap-6">
             <div class="flex items-center gap-2">
               <IconsCalendarBlank />
               <p>{{ data.air_date }}</p>
@@ -24,7 +26,7 @@
           </div>
         </div>
 
-        <div class="flex items-center gap-2 text-2xl">
+        <div class="flex flex-wrap items-center gap-2 text-2xl">
           <IconsSmiley />
           <p>
             {{ data.characters.length }} Personagens participaram deste episódio
