@@ -1,11 +1,16 @@
 <template>
   <footer class="flex flex-col items-center justify-center">
     <PageContainer>
-      <div class="w-full flex items-center justify-between pb-20 border-b-2">
+      <div
+        class="w-full flex items-center justify-between pb-10 md:pb-20 border-b-2"
+      >
         <img src="/images/brands/rick-and-morty-logo.png" alt="Footer Image" />
         <BackToTop />
       </div>
-      <div class="w-full flex items-center justify-between py-7">
+
+      <div
+        class="w-full flex flex-col md:flex-row items-center justify-between py-7"
+      >
         <p class="text-sm font-semibold text-gray-400">
           &copy; 2024 Rick and Morty. All rights reserved.
         </p>
