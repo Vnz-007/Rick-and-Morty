@@ -1,8 +1,8 @@
 <template>
   <PageContainer>
-    <div>
+    <!-- <div>
       <BackToHome />
-    </div>
+    </div> -->
   </PageContainer>
 </template>
 

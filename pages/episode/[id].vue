@@ -1,9 +1,9 @@
 <template>
   <section class="pb-16">
     <PageContainer class="pt-32">
-      <div class="pb-8">
+      <!-- <div class="pb-8">
         <BackToHome />
-      </div>
+      </div> -->
 
       <div
         class="flex flex-col text-2xl gap-20 pb-52 border-b-2 border-cyan-500"

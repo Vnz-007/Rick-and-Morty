@@ -1,10 +1,6 @@
 <template>
   <section>
     <PageContainer class="pt-32">
-      <div class="pb-8">
-        <BackToHome />
-      </div>
-
       <div class="flex gap-16">
         <img
           :src="data.image"
