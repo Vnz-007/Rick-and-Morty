@@ -10,11 +10,11 @@
 </template>
 
 <script lang="ts" setup>
-import { useHead } from "nuxt/app";
-import HomeHeroHeader from "../components/HomeHeroHeader/index.vue";
-import PageContainer from "../components/PageContainer/index.vue";
-import CharactersListing from "../components/CharactersListing/index.vue";
-import EpisodesListing from "../components/EpisodesListing/index.vue";
+// import { useHead } from "nuxt/app";
+// import HomeHeroHeader from "../components/HomeHeroHeader/index.vue";
+// import PageContainer from "../components/PageContainer/index.vue";
+// import CharactersListing from "../components/CharactersListing/index.vue";
+// import EpisodesListing from "../components/EpisodesListing/index.vue";
 
 useHead({
   title: "Rick And Morty - NuxtWiki",
