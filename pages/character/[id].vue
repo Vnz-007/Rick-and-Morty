@@ -13,7 +13,7 @@
           />
 
           <div class="flex flex-col md:gap-12 gap-8">
-            <div class="flex items-center gap-4">
+            <div class="flex flex-wrap items-center gap-4">
               <h1 class="text-4xl md:text-5xl leading-[60px]">
                 {{ data.name }}
               </h1>
