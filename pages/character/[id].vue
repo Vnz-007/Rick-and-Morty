@@ -3,7 +3,9 @@
     <HeaderLogo class="bg-transparent" />
     <PageContainer class="pt-8">
       <div>
-        <div class="flex flex-col md:flex-row md:gap-16 gap-8">
+        <div
+          class="flex flex-col items-center justify-center md:flex-row md:gap-16 gap-8"
+        >
           <img
             :src="data.image"
             alt=""
