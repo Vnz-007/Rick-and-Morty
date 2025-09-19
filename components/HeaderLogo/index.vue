@@ -18,7 +18,4 @@
   </header>
 </template>
 
-<script setup>
-import FavoriteList from "../FavoriteList/index.vue";
-import PageContainer from "../PageContainer/index.vue";
-</script>
+<script setup></script>

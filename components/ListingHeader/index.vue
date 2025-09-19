@@ -9,8 +9,6 @@
   </header>
 </template>
 <script setup>
-import IconsSquareFour from "../icons/SquareFour.vue";
-
 const props = defineProps({
   title: String,
 });

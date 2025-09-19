@@ -30,12 +30,5 @@
 </template>
 
 <script setup>
-import Card from "../Card/index.vue";
-import ListingHeader from "../ListingHeader/index.vue";
-import SeeDocumentDetails from "../SeeDocumentDetails/index.vue";
-// Icons.vue - Components
-import IconsPlay from "../icons/Play.vue";
-import IconsHeartFilled from "../icons/HeartFilled.vue";
-
 const { data } = await useFetch("https://rickandmortyapi.com/api/episode");
 </script>

@@ -9,8 +9,6 @@
 </template>
 
 <script setup>
-import IconsInfo from "../components/icons/Info.vue";
-
 const props = defineProps({
   id: Number,
   type: {

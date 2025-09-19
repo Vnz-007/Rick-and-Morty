@@ -9,7 +9,6 @@
 </template>
 
 <script setup>
-import IconsHeartOutlined from "../components/icons/HeartOutlined.vue";
 // import { ref } from "vue";
 
 // const favorites = ref([]);
