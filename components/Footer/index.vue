@@ -4,7 +4,7 @@
       <div
         class="w-full flex items-center justify-between pb-10 md:pb-20 border-b-2"
       >
-        <img src="/images/brands/rick-and-morty-logo.png" alt="Footer Image" />
+        <img src="/images/brands/Logo-Footer.png" alt="Footer Image" />
         <BackToTop />
       </div>
 

@@ -21,12 +21,23 @@
               <p class="text-base font-bold">{{ currentCharacter.name }}</p>
 
               <div class="flex flex-col gap-2">
-                <p>
-                  {{ currentCharacter.status === "Alive" ? "Vivo" : "Morto" }}
-                </p>
+                <div class="flex items-center gap-2">
+                  <IconsPulse width="16" heigth="16" />
+                  <p>
+                    {{ currentCharacter.status === "Alive" ? "Vivo" : "Morto" }}
+                  </p>
+                </div>
 
-                <p>{{ currentCharacter.species }}</p>
-                <p>{{ currentCharacter.origin.name }}</p>
+                <div class="flex items-center gap-2">
+                  <IconsEspecie width="16" heigth="16" />
+                  <p>{{ currentCharacter.species }}</p>
+                </div>
+                <div class="flex items-center gap-2">
+                  <IconsPlanet />
+                  <p>
+                    {{ currentCharacter.origin.name }}
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -44,14 +55,6 @@
 </template>
 
 <script setup>
-// Index.vue - Components
-import Card from "../components/Card/index.vue";
-import ListingHeader from "../components/ListingHeader/index.vue";
-import SeeDocumentDetails from "../components/SeeDocumentDetails/index.vue";
-// Icons.vue - Components
-import IconsHeartFilled from "../components/icons/HeartFilled.vue";
-import IconsHeartOutlined from "../components/icons/HeartOutlined.vue";
-
 const { data } = await useFetch("https://rickandmortyapi.com/api/character");
 
 console.log(data.results);
