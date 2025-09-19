@@ -16,10 +16,16 @@
           <p>Personagens, episódios, localizações e muito mais...</p>
         </div>
 
-        <div class="flex flex-col items-center gap-6">
+        <div class="flex flex-col items-start gap-6">
           <div class="flex items-center justify-center gap-4">
-            <button class="py-1 px-3 rounded-full bg-cyan-500">Claro</button>
-            <button class="py-1 px-3 rounded-full bg-[#313234]">Escuro</button>
+            <div class="flex py-1 pl-2 pr-3 gap-2 rounded-full bg-cyan-500">
+              <IconsSun />
+              <button>Claro</button>
+            </div>
+            <div class="flex py-1 pl-2 pr-3 gap-2 rounded-full bg-[#313234]">
+              <IconsMoon />
+              <button>Escuro</button>
+            </div>
           </div>
 
           <div>
