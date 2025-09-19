@@ -2,7 +2,7 @@
   <section>
     <HeaderLogo class="bg-transparent" />
     <PageContainer class="pt-8">
-      <div class="flex flex-col md:flex-row md:gap-16 gap-8">
+      <div class="flex flex-col items-center md:flex-row md:gap-16 gap-8">
         <img
           :src="data.image"
           alt=""
@@ -25,7 +25,7 @@
             <p>Participou de {{ data.episode.length }} episódios</p>
           </div>
 
-          <div class="flex gap-6 text-2xl">
+          <div class="flex items-center justify-between text-lg md:text-2xl">
             <div class="flex items-center justify-center gap-2">
               <IconsPulse width="32" />
               <span>{{ data.status === "Alive" ? "Vivo" : "Morto" }}</span>
