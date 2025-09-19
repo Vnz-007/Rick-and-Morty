@@ -26,7 +26,7 @@
           </div>
         </div>
 
-        <div class="flex flex-wrap items-center gap-2 text-2xl">
+        <div class="flex flex-wrap items-center gap-2">
           <IconsSmiley />
           <p>
             {{ data.characters.length }} Personagens participaram deste episódio
