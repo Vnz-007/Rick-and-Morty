@@ -1,6 +1,6 @@
 <template>
   <PageContainer>
-    <HeaderLogo class="bg-transparent" />
+    <HeaderLogoC class="bg-transparent" />
   </PageContainer>
 </template>
 

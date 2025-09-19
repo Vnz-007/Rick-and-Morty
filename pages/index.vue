@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col gap-16">
     <div class="flex flex-col shadow-md">
-      <HeaderLogo />
+      <HeaderLogoA />
       <HomeHeroHeader />
     </div>
     <PageContainer>

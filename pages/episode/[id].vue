@@ -1,6 +1,6 @@
 <template>
   <section class="pb-16">
-    <HeaderLogo class="px-0 bg-transparent" />
+    <HeaderLogoB class="px-0 bg-transparent" />
     <PageContainer>
       <div
         class="flex flex-col text-2xl gap-10 md:gap-20 pt-8 pb-52 border-b-2 border-cyan-500"
@@ -37,6 +37,8 @@
   </section>
 </template>
 <script setup>
+import { useRoute, useHead, useFetch } from "#app";
+
 const route = useRoute();
 const { id } = route.params;
 const { data } = await useFetch(

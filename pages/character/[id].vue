@@ -1,6 +1,6 @@
 <template>
   <section>
-    <HeaderLogo class="bg-transparent" />
+    <HeaderLogoB class="bg-transparent" />
     <PageContainer class="pt-8">
       <div class="flex flex-col items-center md:flex-row md:gap-16 gap-8">
         <img
@@ -46,7 +46,7 @@
 </template>
 
 <script setup>
-import { useHead } from "nuxt/app";
+import { useHead, useRoute, useFetch } from "#app";
 
 const route = useRoute();
 const { id } = route.params;
