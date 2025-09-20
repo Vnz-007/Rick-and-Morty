@@ -1,5 +1,5 @@
 <template>
-  <section class="flex flex-col pb-20 mx-auto gap-8">
+  <section class="flex flex-col pb-20 mx-auto">
     <div class="flex flex-wrap gap-4 justify-center xl:justify-start">
       <ListingHeader title="Personagens" />
 
@@ -22,14 +22,13 @@
 
               <div class="flex flex-col gap-2">
                 <div class="flex items-center gap-2">
-                  <IconsPulse width="16" heigth="16" />
+                  <IconsPulse />
                   <p>
                     {{ currentCharacter.status === "Alive" ? "Vivo" : "Morto" }}
                   </p>
                 </div>
-
                 <div class="flex items-center gap-2">
-                  <IconsEspecie width="16" heigth="16" />
+                  <IconsEspecie />
                   <p>{{ currentCharacter.species }}</p>
                 </div>
                 <div class="flex items-center gap-2">
@@ -56,6 +55,4 @@
 
 <script setup>
 const { data } = await useFetch("https://rickandmortyapi.com/api/character");
-
-console.log(data.results);
 </script>

@@ -8,6 +8,8 @@
       <CharactersListing />
 
       <EpisodesListing />
+
+      <LocationListing />
     </PageContainer>
   </div>
 </template>

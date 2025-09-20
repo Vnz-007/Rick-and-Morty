@@ -14,9 +14,9 @@
 </template>
 
 <script setup lang="ts">
-// const { width = 16, height = 16 } = defineProps<{
-//   width?: number;
-//   height?: number;
-//   color?: string;
-// }>();
+const { width = 16, height = 16 } = defineProps<{
+  width?: number;
+  height?: number;
+  color?: string;
+}>();
 </script>

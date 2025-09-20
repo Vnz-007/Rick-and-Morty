@@ -3,7 +3,7 @@
     to="/favorite"
     class="flex items-center justify-center py-1 pr-3 pl-2 gap-2 text-white bg-cyan-500 rounded-full"
   >
-    <IconsHeartOutlined width="24" height="24" :color="'white'" />
+    <IconsHeartOutlined :width="24" :height="24" :color="'white'" />
     Lista de Favoritos
   </NuxtLink>
 </template>

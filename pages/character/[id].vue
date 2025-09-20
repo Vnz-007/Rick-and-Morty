@@ -16,8 +16,7 @@
             <h1 class="text-4xl md:text-5xl leading-[60px]">
               {{ data.name }}
             </h1>
-
-            <IconsHeartOutlined width="56" height="56" />
+            <IconsHeartOutlined :width="56" :height="56" />
           </div>
 
           <div class="flex items-center gap-2 text-2xl">
@@ -27,15 +26,17 @@
 
           <div class="flex items-center justify-between text-lg md:text-2xl">
             <div class="flex items-center justify-center gap-2">
-              <IconsPulse width="32" />
+              <IconsPulse :width="32" :height="32" />
               <span>{{ data.status === "Alive" ? "Vivo" : "Morto" }}</span>
             </div>
+
             <div class="flex items-center justify-center gap-2">
-              <IconsEspecie width="32" />
+              <IconsEspecie :width="32" :height="32" />
               <span>{{ data.species }}</span>
             </div>
+
             <div class="flex items-center justify-center gap-2">
-              <IconsGender width="32" />
+              <IconsGender :width="32" :height="32" />
               <span>{{ data.gender }}</span>
             </div>
           </div>
@@ -46,22 +47,11 @@
 </template>
 
 <script setup>
-import { useHead, useRoute, useFetch } from "#app";
+import { useRoute, useFetch } from "#app";
 
 const route = useRoute();
 const { id } = route.params;
 const { data } = await useFetch(
   `https://rickandmortyapi.com/api/character/${id}`
 );
-
-useHead({
-  title: `${data.value.name} - Rick And Morty`,
-  link: [
-    {
-      rel: "icon",
-      type: "image/x-icon",
-      href: data.value.image,
-    },
-  ],
-});
 </script>
