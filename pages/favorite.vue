@@ -21,6 +21,11 @@
       </div>
     </PageContainer>
   </header>
+  <PageContainer class="pt-16">
+    <CharactersListing />
+    <EpisodesListing />
+    <LocationListing />
+  </PageContainer>
 </template>
 
-<script></script>
+<script setup></script>
