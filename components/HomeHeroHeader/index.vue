@@ -20,13 +20,21 @@
 
         <div class="flex flex-col items-start gap-6">
           <div class="flex items-center justify-center gap-4">
-            <div class="flex py-1 pl-2 pr-3 gap-2 rounded-full bg-cyan-500">
-              <IconsSun />
-              <button>Claro</button>
+            <div>
+              <button
+                class="flex py-1 pl-2 pr-3 gap-2 rounded-full bg-cyan-500"
+              >
+                <IconsSun />
+                Claro
+              </button>
             </div>
-            <div class="flex py-1 pl-2 pr-3 gap-2 rounded-full bg-[#313234]">
-              <IconsMoon />
-              <button>Escuro</button>
+            <div>
+              <button
+                class="flex py-1 pl-2 pr-3 gap-2 rounded-full bg-[#313234]"
+              >
+                <IconsMoon />
+                Escuro
+              </button>
             </div>
           </div>
 

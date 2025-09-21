@@ -15,7 +15,7 @@
           v-for="(currentCharacter, index) in characters"
           v-show="showAll || index < 8"
           :key="currentCharacter.id"
-          class="w-full max-w-[294px] flex flex-col gap-4 p-4 rounded-lg bg-[#313234]"
+          class="w-full max-w-[294px] flex flex-col gap-4 p-4 rounded-lg"
         >
           <img
             :src="currentCharacter.image"
@@ -46,7 +46,7 @@
               </div>
             </div>
 
-            <button class="self-start" @click="toggleLike(index)">
+            <button @click="toggleLike(index)" class="self-start">
               <IconsHeartFilled v-if="currentCharacter.liked" />
               <IconsHeartOutlined v-else />
             </button>
