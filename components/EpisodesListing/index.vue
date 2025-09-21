@@ -49,11 +49,12 @@ const { data } = await useFetch("https://rickandmortyapi.com/api/episode");
 const showAll = ref(false);
 const episodes = ref([]);
 
-watchEffect(() => {
+onMounted(() => {
   if (data.value) {
-    episodes.value = data.value.results.map((char) => ({
-      ...char,
-      liked: false,
+    episodes.value = data.value.results.map((ep) => ({
+      ...ep,
+      liked:
+        JSON.parse(localStorage.getItem(`episode-liked-${ep.id}`)) || false,
     }));
   }
 });
@@ -63,6 +64,11 @@ function mostrarTodos() {
 }
 
 function toggleLike(index) {
-  episodes.value[index].liked = !episodes.value[index].liked;
+  const episode = episodes.value[index];
+  episode.liked = !episode.liked;
+  localStorage.setItem(
+    `episode-liked-${episode.id}`,
+    JSON.stringify(episode.liked)
+  );
 }
 </script>

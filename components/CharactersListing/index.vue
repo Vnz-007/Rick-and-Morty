@@ -64,11 +64,12 @@ const showAll = ref(false);
 const characters = ref([]);
 const { data } = await useFetch("https://rickandmortyapi.com/api/character");
 
-watchEffect(() => {
+onMounted(() => {
   if (data.value) {
     characters.value = data.value.results.map((char) => ({
       ...char,
-      liked: false,
+      liked:
+        JSON.parse(localStorage.getItem(`character-liked-${char.id}`)) || false,
     }));
   }
 });
@@ -78,6 +79,11 @@ function mostrarTodos() {
 }
 
 function toggleLike(index) {
-  characters.value[index].liked = !characters.value[index].liked;
+  const character = characters.value[index];
+  character.liked = !character.liked;
+  localStorage.setItem(
+    `character-liked-${character.id}`,
+    JSON.stringify(character.liked)
+  );
 }
 </script>

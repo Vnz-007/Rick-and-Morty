@@ -53,11 +53,12 @@ const { data } = await useFetch("https://rickandmortyapi.com/api/location");
 const showAll = ref(false);
 const locations = ref([]);
 
-watchEffect(() => {
+onMounted(() => {
   if (data.value) {
-    locations.value = data.value.results.map((char) => ({
-      ...char,
-      liked: false,
+    locations.value = data.value.results.map((loc) => ({
+      ...loc,
+      liked:
+        JSON.parse(localStorage.getItem(`location-liked-${loc.id}`)) || false,
     }));
   }
 });
@@ -67,6 +68,11 @@ function mostrarTodos() {
 }
 
 function toggleLike(index) {
-  locations.value[index].liked = !locations.value[index].liked;
+  const location = locations.value[index];
+  location.liked = !location.liked;
+  localStorage.setItem(
+    `location-liked-${location.id}`,
+    JSON.stringify(location.liked)
+  );
 }
 </script>
