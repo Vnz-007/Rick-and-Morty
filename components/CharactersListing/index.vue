@@ -60,8 +60,6 @@
 </template>
 
 <script setup>
-import { ref, watchEffect } from "vue";
-
 const showAll = ref(false);
 const characters = ref([]);
 const { data } = await useFetch("https://rickandmortyapi.com/api/character");
