@@ -2,7 +2,7 @@
   <header class="border-b-2 border-cyan-500">
     <HeaderLogoC class="bg-transparent" />
     <PageContainer>
-      <div class="flex justify-between">
+      <div class="flex flex-col md:flex-row justify-between">
         <div class="flex flex-col pt-12">
           <IconsHeartOutlined />
           <h1
