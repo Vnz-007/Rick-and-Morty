@@ -13,7 +13,9 @@
             Saiba tudo em <br />
             um só <span class="text-cyan-500">lugar.</span>
           </h1>
-          <p>Personagens, episódios, localizações e muito mais...</p>
+          <p class="flex flex-wrap">
+            Personagens, episódios, localizações e muito mais...
+          </p>
         </div>
 
         <div class="flex flex-col items-start gap-6">
