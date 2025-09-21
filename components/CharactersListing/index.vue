@@ -12,7 +12,7 @@
 
       <div class="flex flex-wrap gap-4 justify-center">
         <Card
-          v-for="(currentCharacter, index) of data.results"
+          v-for="(currentCharacter, index) in characters"
           v-show="showAll || index < 8"
           :key="currentCharacter.id"
           class="w-full max-w-[294px] flex flex-col gap-4 p-4 rounded-lg bg-[#313234]"
@@ -41,17 +41,15 @@
                 </div>
                 <div class="flex items-center gap-2">
                   <IconsPlanet />
-                  <p>
-                    {{ currentCharacter.origin.name }}
-                  </p>
+                  <p>{{ currentCharacter.origin.name }}</p>
                 </div>
               </div>
             </div>
 
-            <span>
-              <IconsHeartFilled v-if="currentCharacter.status === 'Alive'" />
+            <button class="self-start" @click="toggleLike(index)">
+              <IconsHeartFilled v-if="currentCharacter.liked" />
               <IconsHeartOutlined v-else />
-            </span>
+            </button>
           </div>
 
           <SeeDocumentDetails :id="currentCharacter.id" class="mt-auto" />
@@ -62,10 +60,26 @@
 </template>
 
 <script setup>
-const { data } = await useFetch("https://rickandmortyapi.com/api/character");
+import { ref, watchEffect } from "vue";
+
 const showAll = ref(false);
+const characters = ref([]);
+const { data } = await useFetch("https://rickandmortyapi.com/api/character");
+
+watchEffect(() => {
+  if (data.value) {
+    characters.value = data.value.results.map((char) => ({
+      ...char,
+      liked: false,
+    }));
+  }
+});
 
 function mostrarTodos() {
   showAll.value = !showAll.value;
+}
+
+function toggleLike(index) {
+  characters.value[index].liked = !characters.value[index].liked;
 }
 </script>
