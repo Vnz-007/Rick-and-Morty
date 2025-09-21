@@ -184,14 +184,13 @@
 </template>
 
 <script setup>
+useHead({
+  title: " My Favorites | Rick And Morty",
+});
 import { ref, computed, onMounted } from "vue";
 import { useCharacters } from "@/composables/useCharacters";
 import { useEpisodes } from "@/composables/useEpisodes";
 import { useLocations } from "@/composables/useLocations";
-
-useHead({
-  title: " My Favorites | Rick And Morty",
-});
 
 const {
   characters,
