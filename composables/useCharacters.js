@@ -2,7 +2,6 @@ export const useCharacters = () => {
   const characters = useState("characters", () => []);
 
   async function fetchCharacters() {
-    // só roda no cliente
     if (!process.client) return;
 
     if (characters.value.length === 0) {

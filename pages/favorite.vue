@@ -28,78 +28,198 @@
         <div class="flex gap-4 items-center">
           <h2 class="text-2xl font-bold">Personagens</h2>
           <button
-            @click="mostrarTodos()"
+            @click="mostrarTodos('characters')"
             class="flex gap-2 p-1 pr-2 rounded-[32px] bg-[#313234]"
           >
             <IconsSquareFour />
-            {{ showAll ? "Ver menos" : "Ver todos" }}
+            {{ showAll.characters ? "Ver menos" : "Ver todos" }}
           </button>
+        </div>
+
+        <div v-if="favoritos.characters.length === 0" class="text-gray-500">
+          Nenhum personagem favoritado.
         </div>
 
         <div class="flex flex-wrap gap-4 justify-center">
           <Card
-            v-for="(card, index) in favoritos"
-            v-show="showAll || index < 8"
-            :key="card.id"
+            v-for="(c, i) in favoritos.characters"
+            v-show="showAll.characters || i < 8"
+            :key="c.id"
             class="w-full max-w-[294px] flex flex-col gap-4 p-4 rounded-lg"
           >
             <img
-              :src="card.image"
+              :src="c.image"
               height="200"
               width="262"
               class="rounded-2xl h-[200px] object-cover"
             />
             <div class="grid grid-cols-[1fr,48px]">
               <div class="flex flex-col gap-4">
-                <p class="text-base font-bold">{{ card.name }}</p>
+                <p class="text-base font-bold">{{ c.name }}</p>
 
                 <div class="flex flex-col gap-2">
                   <div class="flex items-center gap-2">
                     <IconsPulse />
                     <p>
-                      {{ card.status === "Alive" ? "Vivo" : "Morto" }}
+                      {{ c.status === "Alive" ? "Vivo" : "Morto" }}
                     </p>
                   </div>
                   <div class="flex items-center gap-2">
                     <IconsEspecie />
-                    <p>{{ card.species }}</p>
+                    <p>{{ c.species }}</p>
                   </div>
                   <div class="flex items-center gap-2">
                     <IconsPlanet />
-                    <p>{{ card.origin.name }}</p>
+                    <p>{{ c.origin.name }}</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <button @click="toggleLike(card.id)" class="">
-              <IconsHeartFilled />
+            <button @click="toggleCharacterLike(c.id)" class="">
+              <IconsHeartFilled v-if="c.liked" />
+              <IconsHeartOutlined v-else />
             </button>
           </Card>
         </div>
       </div>
+    </section>
 
-      <p v-if="!pending && favoritos.length === 0" class="text-gray-500">
-        Nenhum favorito ainda.
-      </p>
+    <!-- EPISÓDIOS -->
+    <section class="flex flex-col pb-20 mx-auto">
+      <div class="flex flex-wrap gap-7 justify-center xl:justify-start">
+        <div class="flex gap-4 items-center">
+          <h2 class="text-2xl font-bold">Episódios</h2>
+          <button
+            @click="mostrarTodos('episodes')"
+            class="flex gap-2 p-1 pr-2 rounded-[32px] bg-[#313234]"
+          >
+            <IconsSquareFour />
+            {{ showAll.episodes ? "Ver menos" : "Ver todos" }}
+          </button>
+        </div>
 
-      <p v-if="pending" class="text-gray-500">Carregando favoritos...</p>
+        <div v-if="favoritos.episodes.length === 0" class="text-gray-500">
+          Nenhum episódio favoritado.
+        </div>
+
+        <div class="flex flex-wrap gap-4 justify-center">
+          <Card
+            v-for="(e, i) in favoritos.episodes"
+            v-show="showAll.episodes || i < 8"
+            :key="e.id"
+            class="min-h-[150px] max-w-[232px] flex flex-col justify-between gap-2 p-4 rounded-lg"
+          >
+            <div class="flex items-center gap-2">
+              <IconsPlay class="flex-[0_0_24px]" />
+              <p>{{ e.name }} | {{ e.episode }}</p>
+            </div>
+            <div class="flex items-center justify-between">
+              <SeeDocumentDetails :id="e.id" type="episode" />
+              <button @click="toggleEpisodeLike(e.id)">
+                <IconsHeartFilled v-if="e.liked" />
+                <IconsHeartOutlined v-else />
+              </button>
+            </div>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCAIS -->
+    <section class="flex flex-col pb-20 mx-auto">
+      <div class="flex flex-wrap gap-7 justify-center xl:justify-start">
+        <div class="flex gap-4 items-center">
+          <h2 class="text-2xl font-bold">Locais</h2>
+          <button
+            @click="mostrarTodos('locations')"
+            class="flex gap-2 p-1 pr-2 rounded-[32px] bg-[#313234]"
+          >
+            <IconsSquareFour />
+            {{ showAll.locations ? "Ver menos" : "Ver todos" }}
+          </button>
+        </div>
+
+        <div v-if="favoritos.locations.length === 0" class="text-gray-500">
+          Nenhum local favoritado.
+        </div>
+
+        <div class="flex flex-wrap gap-4 justify-center">
+          <Card
+            v-for="(l, i) in favoritos.locations"
+            v-show="showAll.locations || i < 8"
+            :key="l.id"
+            class="w-full max-w-[294px] flex flex-col gap-4 p-4 rounded-lg"
+          >
+            <p class="text-base">{{ l.name }}</p>
+            <p>{{ l.type }} - {{ l.dimension }}</p>
+            <button @click="toggleLocationLike(l.id)">
+              <IconsHeartFilled v-if="l.liked" />
+              <IconsHeartOutlined v-else />
+            </button>
+          </Card>
+        </div>
+      </div>
     </section>
   </PageContainer>
 </template>
 
 <script setup>
-import { computed } from "vue";
+// import { computed } from "vue";
 
-const { characters, fetchCharacters, toggleLike } = useCharacters();
+// const { characters, fetchCharacters, toggleLike } = useCharacters();
+// const pending = ref(true);
+// const favoritos = computed(() => characters.value.filter((c) => c.liked));
+// const showAll = ref(false);
+
+// await fetchCharacters();
+// pending.value = false;
+
+// function mostrarTodos() {
+//   showAll.value = !showAll.value;
+// }
+
+import { ref, computed, onMounted } from "vue";
+import { useCharacters } from "@/composables/useCharacters";
+import { useEpisodes } from "@/composables/useEpisodes";
+import { useLocations } from "@/composables/useLocations";
+
+const {
+  characters,
+  fetchCharacters,
+  toggleLike: toggleCharacterLike,
+} = useCharacters();
+const {
+  episodes,
+  fetchEpisodes,
+  toggleLike: toggleEpisodeLike,
+} = useEpisodes();
+const {
+  locations,
+  fetchLocations,
+  toggleLike: toggleLocationLike,
+} = useLocations();
+
 const pending = ref(true);
-const favoritos = computed(() => characters.value.filter((c) => c.liked));
-const showAll = ref(false);
 
-await fetchCharacters();
-pending.value = false;
+// controle de "ver todos" por tipo
+const showAll = ref({ characters: false, episodes: false, locations: false });
 
-function mostrarTodos() {
-  showAll.value = !showAll.value;
+// favoritos filtrados
+const favoritos = computed(() => ({
+  characters: characters.value.filter((c) => c.liked),
+  episodes: episodes.value.filter((e) => e.liked),
+  locations: locations.value.filter((l) => l.liked),
+}));
+
+// fetch de todos os dados apenas no cliente
+onMounted(async () => {
+  await Promise.all([fetchCharacters(), fetchEpisodes(), fetchLocations()]);
+  pending.value = false;
+});
+
+// função de "ver todos / ver menos"
+function mostrarTodos(type) {
+  showAll.value[type] = !showAll.value[type];
 }
 </script>
