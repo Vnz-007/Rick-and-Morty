@@ -1,37 +1,41 @@
 <template>
-  <section class="pb-16">
-    <HeaderLogoC />
-    <PageContainer>
-      <div
-        class="flex flex-col text-2xl gap-10 md:gap-20 pt-8 pb-52 border-b-2 border-cyan-500"
-      >
-        <div class="flex flex-col gap-6">
-          <IconsPlanet :width="72" :height="72" />
-          <div class="flex flex-wrap items-center gap-4">
-            <h1 class="flex items-center justify-center text-5xl">
-              {{ data.name }}
-            </h1>
-            <IconsHeartOutlined :width="56" :height="56" />
-          </div>
-
-          <div class="flex flex-wrap items-center gap-6">
-            <div class="flex items-center gap-2">
-              <IconsPlanet :width="32" :height="32" />
-              <p>{{ data.type }}</p>
+  <section>
+    <HeaderLogoB />
+    <div class="text-2xl pt-8 pb-24 md:pb-52 border-b-2 border-cyan-500">
+      <PageContainer>
+        <div class="flex flex-col text-2xl gap-10 md:gap-20">
+          <div class="flex flex-col gap-6">
+            <IconsPlanet :width="72" :height="72" />
+            <div class="flex flex-wrap items-center gap-4">
+              <h1 class="flex items-center justify-center text-5xl">
+                {{ data.name }}
+              </h1>
+              <IconsHeartOutlined :width="56" :height="56" />
             </div>
 
-            <div class="flex items-center gap-2">
-              <IconsCubeFocus :width="32" :height="32" />
-              <p>{{ data.dimension }}</p>
+            <div class="flex flex-wrap items-center gap-6">
+              <div class="flex items-center gap-2">
+                <IconsPlanet :width="32" :height="32" />
+                <p>{{ data.type }}</p>
+              </div>
+
+              <div class="flex items-center gap-2">
+                <IconsCubeFocus :width="32" :height="32" />
+                <p>{{ data.dimension }}</p>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="flex flex-wrap items-center gap-2">
-          <IconsSmiley />
-          <p>{{ data.residents.length }} Personagens localizados aqui</p>
+          <div class="flex flex-wrap items-center gap-2">
+            <IconsSmiley />
+            <p>{{ data.residents.length }} Personagens localizados aqui</p>
+          </div>
         </div>
-      </div>
+      </PageContainer>
+    </div>
+
+    <PageContainer class="pt-16">
+      <LocationListing :locationId="data.id" />
     </PageContainer>
   </section>
 </template>

@@ -1,8 +1,8 @@
 <template>
   <section>
-    <HeaderLogoB class="bg-transparent" />
-    <div class="pb-16 border-b-2 border-cyan-500">
-      <PageContainer class="pt-8">
+    <HeaderLogoB />
+    <div class="pt-8 pb-24 md:pb-52 border-b-2 border-cyan-500">
+      <PageContainer>
         <div class="flex flex-col items-center md:flex-row md:gap-16 gap-8">
           <img
             :src="data.image"
@@ -45,8 +45,9 @@
         </div>
       </PageContainer>
     </div>
-    <PageContainer class="text-white">
-      <CharactersListing class="" />
+
+    <PageContainer class="pt-16">
+      <CharactersListing :charaterId="data.id" />
     </PageContainer>
   </section>
 </template>

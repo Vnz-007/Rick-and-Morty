@@ -1,14 +1,16 @@
 <template>
   <section class="flex flex-col w-full max-w-[1224px] pb-20 mx-auto">
-    <div class="flex flex-wrap gap-4 justify-center xl:justify-start">
-      <h2 class="text-2xl font-bold">Episódios</h2>
-      <button
-        @click="mostrarTodos()"
-        class="flex gap-2 p-1 pr-2 rounded-[32px] bg-[#313234]"
-      >
-        <IconsSquareFour />
-        {{ showAll ? "Ver menos" : "Ver todos" }}
-      </button>
+    <div class="flex flex-wrap gap-7 justify-center xl:justify-start">
+      <div class="flex gap-4 items-center">
+        <h2 class="text-2xl font-bold">Episódios</h2>
+        <button
+          @click="mostrarTodos()"
+          class="flex gap-2 p-1 pr-2 rounded-[32px] bg-[#313234]"
+        >
+          <IconsSquareFour />
+          {{ showAll ? "Ver menos" : "Ver todos" }}
+        </button>
+      </div>
 
       <div
         class="flex flex-wrap lg:grid lg:grid-cols-[repeat(5,1fr)] justify-center gap-4"
