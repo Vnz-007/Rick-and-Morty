@@ -7,16 +7,18 @@
     >
       <h3>{{ card.name }}</h3>
       <button
-        @click="card.liked = false"
+        @click="toggleLike(card.id)"
         class="mt-2 px-3 py-1 bg-red-500 text-white rounded"
       >
         Remover dos favoritos
       </button>
     </div>
 
-    <p v-if="favoritos.length === 0" class="text-gray-500">
+    <p v-if="!pending && favoritos.length === 0" class="text-gray-500">
       Nenhum favorito ainda.
     </p>
+
+    <p v-if="pending" class="text-gray-500">Carregando favoritos...</p>
   </section>
 </template>
 
@@ -51,13 +53,13 @@
 </template> -->
 
 <script setup>
-import { ref, computed } from "vue";
+import { computed } from "vue";
 
-const { data } = await useFetch("https://rickandmortyapi.com/api/character");
+const { characters, fetchCharacters, toggleLike } = useCharacters();
+const pending = ref(true);
 
-// garante que seja um array de personagens
-const cards = ref(data.value.results.map((c) => ({ ...c, liked: false })));
+await fetchCharacters();
+pending.value = false;
 
-// só pega os curtidos
-const favoritos = computed(() => cards.value.filter((c) => c.liked));
+const favoritos = computed(() => characters.value.filter((c) => c.liked));
 </script>
