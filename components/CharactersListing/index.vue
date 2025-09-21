@@ -1,11 +1,19 @@
 <template>
   <section class="flex flex-col pb-20 mx-auto">
     <div class="flex flex-wrap gap-4 justify-center xl:justify-start">
-      <ListingHeader title="Personagens" />
+      <h2 class="text-2xl font-bold">Personagens</h2>
+      <button
+        @click="mostrarTodos()"
+        class="flex gap-2 p-1 pr-2 rounded-[32px] bg-[#313234]"
+      >
+        <IconsSquareFour />
+        {{ showAll ? "Ver menos" : "Ver todos" }}
+      </button>
 
       <div class="flex flex-wrap gap-4 justify-center">
         <Card
-          v-for="currentCharacter of data.results"
+          v-for="(currentCharacter, index) of data.results"
+          v-show="showAll || index < 8"
           :key="currentCharacter.id"
           class="w-full max-w-[294px] flex flex-col gap-4 p-4 rounded-lg bg-[#313234]"
         >
@@ -55,4 +63,9 @@
 
 <script setup>
 const { data } = await useFetch("https://rickandmortyapi.com/api/character");
+const showAll = ref(false);
+
+function mostrarTodos() {
+  showAll.value = !showAll.value;
+}
 </script>
