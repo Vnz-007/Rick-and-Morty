@@ -23,8 +23,9 @@
   </header>
 
   <PageContainer class="pt-16">
+    <!-- Characters -->
     <section class="flex flex-col pb-20 mx-auto">
-      <div class="flex flex-wrap gap-7 justify-center xl:justify-start">
+      <div class="flex flex-col gap-7 justify-center xl:justify-start">
         <div class="flex gap-4 items-center">
           <h2 class="text-2xl font-bold">Personagens</h2>
           <button
@@ -40,7 +41,7 @@
           Nenhum personagem favoritado.
         </div>
 
-        <div class="flex flex-wrap gap-4 justify-center">
+        <div class="flex flex-wrap md:grid md:grid-cols-4 gap-4 justify-center">
           <Card
             v-for="(c, i) in favoritos.characters"
             v-show="showAll.characters || i < 8"
@@ -53,6 +54,7 @@
               width="262"
               class="rounded-2xl h-[200px] object-cover"
             />
+
             <div class="grid grid-cols-[1fr,48px]">
               <div class="flex flex-col gap-4">
                 <p class="text-base font-bold">{{ c.name }}</p>
@@ -74,12 +76,13 @@
                   </div>
                 </div>
               </div>
-            </div>
 
-            <button @click="toggleCharacterLike(c.id)" class="">
-              <IconsHeartFilled v-if="c.liked" />
-              <IconsHeartOutlined v-else />
-            </button>
+              <button @click="toggleCharacterLike(c.id)" class="self-start">
+                <IconsHeartFilled v-if="c.liked" />
+                <IconsHeartOutlined v-else />
+              </button>
+            </div>
+            <SeeDocumentDetails :id="c.id" class="mt-auto" />
           </Card>
         </div>
       </div>
@@ -87,7 +90,7 @@
 
     <!-- EPISÓDIOS -->
     <section class="flex flex-col pb-20 mx-auto">
-      <div class="flex flex-wrap gap-7 justify-center xl:justify-start">
+      <div class="flex flex-col gap-7 justify-center xl:justify-start">
         <div class="flex gap-4 items-center">
           <h2 class="text-2xl font-bold">Episódios</h2>
           <button
@@ -103,32 +106,37 @@
           Nenhum episódio favoritado.
         </div>
 
-        <div class="flex flex-wrap gap-4 justify-center">
-          <Card
+        <div class="flex flex-wrap md:grid md:grid-cols-5 gap-4 justify-center">
+          <card
             v-for="(e, i) in favoritos.episodes"
-            v-show="showAll.episodes || i < 8"
+            v-show="showAll.episodes || i < 5"
             :key="e.id"
-            class="min-h-[150px] max-w-[232px] flex flex-col justify-between gap-2 p-4 rounded-lg"
+            class="max-h-[156px] max-w-[232px] flex flex-col justify-between gap-2"
           >
             <div class="flex items-center gap-2">
               <IconsPlay class="flex-[0_0_24px]" />
               <p>{{ e.name }} | {{ e.episode }}</p>
             </div>
             <div class="flex items-center justify-between">
-              <SeeDocumentDetails :id="e.id" type="episode" />
+              <SeeDocumentDetails
+                class="my-auto"
+                :id="e.id"
+                :type="'episode'"
+              />
+
               <button @click="toggleEpisodeLike(e.id)">
-                <IconsHeartFilled v-if="e.liked" />
-                <IconsHeartOutlined v-else />
+                <IconsHeartFilled v-if="e.liked" :width="32" :height="32" />
+                <IconsHeartOutlined v-else :width="32" :height="32" />
               </button>
             </div>
-          </Card>
+          </card>
         </div>
       </div>
     </section>
 
     <!-- LOCAIS -->
     <section class="flex flex-col pb-20 mx-auto">
-      <div class="flex flex-wrap gap-7 justify-center xl:justify-start">
+      <div class="flex flex-col gap-7 justify-center xl:justify-start">
         <div class="flex gap-4 items-center">
           <h2 class="text-2xl font-bold">Locais</h2>
           <button
@@ -144,19 +152,30 @@
           Nenhum local favoritado.
         </div>
 
-        <div class="flex flex-wrap gap-4 justify-center">
+        <div class="flex flex-wrap md:grid md:grid-cols-6 gap-4 justify-center">
           <Card
             v-for="(l, i) in favoritos.locations"
-            v-show="showAll.locations || i < 8"
+            v-show="showAll.locations || i < 6"
             :key="l.id"
-            class="w-full max-w-[294px] flex flex-col gap-4 p-4 rounded-lg"
+            class="max-w-[174px] max-h-[252px] md:min-h-[252px] flex flex-col items-center justify-between"
           >
-            <p class="text-base">{{ l.name }}</p>
-            <p>{{ l.type }} - {{ l.dimension }}</p>
-            <button @click="toggleLocationLike(l.id)">
-              <IconsHeartFilled v-if="l.liked" />
-              <IconsHeartOutlined v-else />
-            </button>
+            <div class="flex flex-col flex-wrap text-center items-center">
+              <IconsPlanet :width="48" :height="48" />
+              <p class="text-center">{{ l.type }}</p>
+              <p>{{ l.name }}</p>
+            </div>
+
+            <div class="flex md:flex-col items-center gap-4">
+              <SeeDocumentDetails
+                :id="l.id"
+                :type="'location'"
+                class="my-auto"
+              />
+              <button @click="toggleLocationLike(l.id)">
+                <IconsHeartFilled v-if="l.liked" :width="32" :height="32" />
+                <IconsHeartOutlined v-else :width="32" :height="32" />
+              </button>
+            </div>
           </Card>
         </div>
       </div>
@@ -165,24 +184,12 @@
 </template>
 
 <script setup>
-// import { computed } from "vue";
-
-// const { characters, fetchCharacters, toggleLike } = useCharacters();
-// const pending = ref(true);
-// const favoritos = computed(() => characters.value.filter((c) => c.liked));
-// const showAll = ref(false);
-
-// await fetchCharacters();
-// pending.value = false;
-
-// function mostrarTodos() {
-//   showAll.value = !showAll.value;
-// }
-
-import { ref, computed, onMounted } from "vue";
+import { ref, computed, onMounted, useHead } from "vue";
 import { useCharacters } from "@/composables/useCharacters";
 import { useEpisodes } from "@/composables/useEpisodes";
 import { useLocations } from "@/composables/useLocations";
+
+const { data } = await useFetch("https://rickandmortyapi.com/api/character/2");
 
 const {
   characters,
