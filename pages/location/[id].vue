@@ -41,6 +41,10 @@
 </template>
 
 <script setup>
+useHead({
+  title: "Localizações | Rick And Morty",
+});
+
 import { useRoute, useFetch } from "#app";
 
 const route = useRoute();
@@ -48,5 +52,4 @@ const { id } = route.params;
 const { data } = await useFetch(
   `https://rickandmortyapi.com/api/location/${id}`
 );
-console.log(data.value);
 </script>

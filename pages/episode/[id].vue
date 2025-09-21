@@ -45,6 +45,10 @@
   </section>
 </template>
 <script setup>
+useHead({
+  title: "Episódios | Rick And Morty",
+});
+
 import { useRoute, useFetch } from "#app";
 
 const route = useRoute();

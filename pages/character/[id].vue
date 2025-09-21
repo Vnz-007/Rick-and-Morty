@@ -53,6 +53,10 @@
 </template>
 
 <script setup>
+useHead({
+  title: "Personagens | Rick And Morty",
+});
+
 import { useRoute, useFetch } from "#app";
 
 const route = useRoute();

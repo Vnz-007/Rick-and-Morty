@@ -184,12 +184,14 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, useHead } from "vue";
+import { ref, computed, onMounted } from "vue";
 import { useCharacters } from "@/composables/useCharacters";
 import { useEpisodes } from "@/composables/useEpisodes";
 import { useLocations } from "@/composables/useLocations";
 
-const { data } = await useFetch("https://rickandmortyapi.com/api/character/2");
+useHead({
+  title: " My Favorites | Rick And Morty",
+});
 
 const {
   characters,

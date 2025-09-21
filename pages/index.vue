@@ -16,6 +16,6 @@
 
 <script lang="ts" setup>
 useHead({
-  title: "Rick And Morty - NuxtWiki",
+  title: "Rick And Morty | Learn More",
 });
 </script>
